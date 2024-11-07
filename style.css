@@ -30,6 +30,29 @@ html{
 body{
     background: var(--bg-color);
     color: var(--text-color);
+    cursor: none;
+}
+
+.cursor-dot{
+    width: 10px;
+    height: 10px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+
+.cursor-outline{
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-dot, .cursor-outline{
+    position: absolute;
+    pointer-events: none;
 }
 
 .header{
@@ -125,6 +148,8 @@ section{
     margin-bottom: 0.3rem;
     font-size: 3rem;
     font-family: 'Times New Roman', Times, serif;
+    color: var(--main-color);
+    font-weight: 500;
 }
 .home-content .social-media a{
     display: inline-flex;
@@ -352,95 +377,39 @@ span {
     color: var(--white-color);
 }
 
-.Skills{
-    min-height: auto;
-    padding-bottom: 7rem;
-    background: var(--bg-color);
-}
-.Skills .Skills-row{
+/* Skills Section */
+.skills-section {
     display: flex;
+    justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
-    gap: 5rem;
-}
-.Skills-row .Skills-column{
-    flex: 1 1 40rem;
-}
-.Skills-column .title{
-    font-size: 2.5rem;
-    margin: 0 0 1.5rem;
-    font-family: 'Times New Roman', Times, serif;
-}
-.Skills-box .Skills-content{
-    position: relative;
-    border: 0.2rem solid var(--main-color);
-    border-radius: 0.6rem;
-    padding: 0.5rem 1.5rem;
-    z-index: 1;
-    overflow: hidden;
-}
-.Skills-box .Skills-content::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-    z-index: -1;
-    transition: 0.5s;
-}
-.Skills-box .Skills-content:hover::before{
-    width: 100%;
 }
 
-.Skills-content .progress{
-    padding: 1rem 0;
+.skill-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 150px;
+    transition: transform 0.3s;
 }
-.Skills-content .progress h3{
-    font-size: 1.7rem;
-    display: flex;
-    justify-content: space-between;
+
+.skill-card img {
+    width: 60px;
+    height: 60px;
 }
-.Skills-content .progress h3 span{
-    color: var(--text-color);
+
+.skill-card p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
 }
-.Skills-content .progress .bar{
-    height: 2.5rem;
-    border-radius: 0.6rem;
-    border: 0.2rem solid var(--main-color);
-    padding: 0.5rem;
-    margin: 1rem 0;
+
+.skill-card:hover {
+    transform: scale(1.1);
 }
-.Skills-content .progress .bar span{
-    display: block;
-    height: 100%;
-    border-radius: 0.3rem;
-    background: var(--main-color);
-}
-.Skills-column:nth-child(1) .Skills-content .progress:nth-child(1) .bar span{
-    width: 95%;
-}
-.Skills-column:nth-child(1) .Skills-content .progress:nth-child(2) .bar span{
-    width: 90%;
-}
-.Skills-column:nth-child(1) .Skills-content .progress:nth-child(3) .bar span{
-    width: 80%;
-}
-.Skills-column:nth-child(1) .Skills-content .progress:nth-child(4) .bar span{
-    width: 90%;
-}
-.Skills-column:nth-child(1) .Skills-content .progress:nth-child(5) .bar span{
-    width: 85%;
-}
-.Skills-column:nth-child(2) .Skills-content .progress:nth-child(1) .bar span{
-    width: 85%;
-}
-.Skills-column:nth-child(2) .Skills-content .progress:nth-child(2) .bar span{
-    width: 90%;
-}
-.Skills-column:nth-child(2) .Skills-content .progress:nth-child(3) .bar span{
-    width: 80%;
-}
+
 
 .achievements{
     padding: 100px 0;
