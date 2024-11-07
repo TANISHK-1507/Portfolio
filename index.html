@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
     <header class="header">
         <a href="#" class="logo"></a>
         <img src="TJ.jpg" alt="">
@@ -30,7 +32,16 @@
         <div class="home-content">
             <h3>Hi, I am</h3>
             <h1> TANISHK <span>JAIN</span></h1>
-            <p>A versatile Front-end Developer, Web Designer, Creative thinker, Problem-Solver</p>
+            <p class="auto-type"></p>
+            <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+            <script>
+                var typed = new Typed(".auto-type", {
+                    strings: ["I like to make things for the web.", "I like to Design things for the web", "I like to learn new things.", "Talk me about Problem Solving."],
+                    typespeed: 500,
+                    backSpeed: 50,
+                    loop: true
+                })
+            </script>
             <div class="social-media">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
                 <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -38,7 +49,7 @@
                 <a href="https://www.linkedin.com/in/tanishk-jain-b410b0276/"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://github.com/TANISHK-1507"><i class='bx bxl-github'></i></a>
             </div>
-            <a href="https://drive.google.com/file/d/1pZCenpENqDloQLaeJK43aPBfOC8s-pQu/view?usp=sharing"
+            <a href="https://drive.google.com/file/d/1KB41C7ZfbsW51ExEsoq6O7ApALMSG1H9/view?usp=sharing"
                 class="btn">Download Resume <i class='bx bx-download'></i></a>
         </div>
         <div class="profession-container">
@@ -104,58 +115,11 @@
             </div>
         </div>
     </section>
+    <!-- Skills Section -->
     <section class="Skills" id="Skills">
         <h2 class="heading">My <span>Skills</span></h2>
-
-        <div class="Skills-row">
-            <div class="Skills-column">
-                <h3 class="title">Coding Skills</h3>
-
-                <div class="Skills-box">
-                    <div class="Skills-content">
-                        <div class="progress">
-                            <h3>HTML <span> 95%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>CSS <span> 90%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Javascript <span> 80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Python <span> 90%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>DSA <span> 85%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Skills-column">
-                <h3 class="title">Professional Skills</h3>
-
-                <div class="Skills-box">
-                    <div class="Skills-content">
-                        <div class="progress">
-                            <h3>Web Design <span> 85%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Web Development <span> 90%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Graphics Design <span> 80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="skills-container" class="skills-section">
+            <!-- Skills will load here dynamically -->
         </div>
     </section>
     <section class="achievements" id="achievements">
@@ -223,6 +187,25 @@
     </footer>
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Fetch Skills Data -->
+    <script>
+        fetch('skills.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('skills-container');
+                data.forEach(skill => {
+                    const skillCard = document.createElement('div');
+                    skillCard.classList.add('skill-card');
+                    skillCard.innerHTML = `
+                        <img src="${skill.icon}" alt="${skill.name}">
+                        <p>${skill.name}</p>
+                    `;
+                    container.appendChild(skillCard);
+                });
+            });
+    </script>
+
 
     <script src="script.js"></script>
 </body>
