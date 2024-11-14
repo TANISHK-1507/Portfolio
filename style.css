@@ -84,8 +84,22 @@ body{
     color: var(--white-color);
     font-weight: 500;
     margin-right: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--bg-color);
+    transition: width 0.3s ease;
 }
 
+.navbar a:hover::after {
+    width: 100%;
+}
 .header.sticky .navbar a{
     color: var(--text-color);
 }
@@ -109,6 +123,10 @@ body{
      font-size: 2.4rem;
      color: var(--white-color);
      cursor: pointer;
+     transition: transform 0.5s ease;
+}
+#darkMode-icon.bx-sun {
+    transform: rotate(180deg);
 }
 .header.sticky #darkMode-icon{
     color: var(--text-color);
@@ -152,6 +170,14 @@ section{
     color: var(--main-color);
     font-weight: 500;
 }
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 .home-content .social-media a{
     display: inline-flex;
     justify-content: center;
@@ -165,7 +191,8 @@ section{
     font-size: 2rem;
     columns: var(--main-color);
     margin: 2.5rem 1.5rem 3rem 0;
-    transition: .5s ease;
+    animation: rotateIcon 5s linear infinite;  
+    transition: .5s ease, color 0.5s ease;
 }
 .home-content .social-media a:hover{
     background: var(--main-color);
@@ -255,6 +282,7 @@ section{
     font-size: 3.2rem;
     line-height: 1;
     font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
 }
 .home .profession-box .circle{
     width: 560px;
@@ -286,7 +314,8 @@ section{
 }
 
 span {
-    color: var(--main-color)
+    color: var(--main-color);
+    font-family: 'Times New Roman', Times, serif;
 }
 .about{
     display: flex;
@@ -306,6 +335,7 @@ span {
 .about-content h2{
     text-align: left;
     line-height: 1.2;
+    font-family: 'Times New Roman', Times, serif;
 }
 .about-content h3{
     font-size: 3rem;
@@ -480,12 +510,14 @@ span {
     font-size: 2.5rem;
     color: yellow;
     margin-bottom: 1rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .Projects-layer p {
     font-size: 1.8rem;
     color: var(--white-color);
     margin-bottom: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .code-btn {
@@ -507,6 +539,7 @@ span {
 
 .contact h2{
     margin-bottom: 3rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .contact form{
@@ -531,6 +564,7 @@ span {
     border-radius: 0.8rem;
     margin: 0.7rem 0;
     box-shadow: 0 .1rem 0.5rem var(--shadow-color);
+    font-family: 'Times New Roman', Times, serif    ;
 }
 .contact form .input-box input{
     width: 50%;
