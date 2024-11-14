@@ -227,15 +227,7 @@ section{
         transform: rotate(-360deg);
     }
 }
-@media (max-width: 768px) {
-    .home .profession-container .profession-box {
-        width: 300px;     /* Adjusted width for mobile */
-        height: 300px;    /* Adjusted height for mobile */
-        top: 50px;        /* Adjust position to better fit mobile screen */
-        right: 50%;       /* Center horizontally */
-        transform: translateX(50%); /* Center the box visually */
-    }
-}
+
 .home .profession-box .profession{
     position: absolute;
     display: flex;
