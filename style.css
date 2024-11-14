@@ -227,6 +227,15 @@ section{
         transform: rotate(-360deg);
     }
 }
+@media (max-width: 768px) {
+    .home .profession-container .profession-box {
+        width: 300px;     /* Adjusted width for mobile */
+        height: 300px;    /* Adjusted height for mobile */
+        top: 50px;        /* Adjust position to better fit mobile screen */
+        right: 50%;       /* Center horizontally */
+        transform: translateX(50%); /* Center the box visually */
+    }
+}
 .home .profession-box .profession{
     position: absolute;
     display: flex;
@@ -620,6 +629,12 @@ span {
 @media (max-width: 768px){
     #menu-icon{
         display: block;
+        font-size: 1.8em;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1001;
     }
 
     #darkMode-icon{
@@ -644,13 +659,15 @@ span {
 
     .navbar.active{
         display: block;
+        left: 0;
     }
 
     .navbar a{
         display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 20px 0;
         color: var(--text-color);
+        text-decoration: none;
     }
 
     .navbar a:nth-child(1),
